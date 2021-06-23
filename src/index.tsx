@@ -1,4 +1,4 @@
-import type { apiClient } from './clients/api';
+import { apiClient } from './clients/api';
 import { setStorageItem, getStorageItem } from './storage';
 
 export { getStorageItem, setStorageItem, apiClient };
