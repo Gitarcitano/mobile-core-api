@@ -1,0 +1,22 @@
+{
+  "name": "mobile-core-api-example",
+  "displayName": "MobileCoreApi Example",
+  "expo": {
+    "name": "mobile-core-api-example",
+    "slug": "mobile-core-api-example",
+    "description": "Example app for mobile-core-api",
+    "privacy": "public",
+    "version": "1.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
