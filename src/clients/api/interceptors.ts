@@ -1,5 +1,5 @@
 import type { AxiosRequestConfig } from 'axios';
-import { getStorageItem } from 'src/storage';
+import { getStorageItem } from '../../storage';
 
 export async function requestInterceptor(
   config: AxiosRequestConfig
