@@ -1,10 +1,8 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const storageKeyPrefix = '@olistStore:';
-
 export async function getStorageItem(itemKey: string): Promise<unknown> {
   try {
-    const data = await AsyncStorage.getItem(`${storageKeyPrefix}${itemKey}`);
+    const data = await AsyncStorage.getItem(itemKey);
     const parsedItem = data ? JSON.parse(data) : undefined;
 
     return parsedItem;
@@ -15,10 +13,7 @@ export async function getStorageItem(itemKey: string): Promise<unknown> {
 
 export async function setStorageItem(itemKey: string, data: unknown) {
   try {
-    await AsyncStorage.setItem(
-      `${storageKeyPrefix}${itemKey}`,
-      JSON.stringify(data)
-    );
+    await AsyncStorage.setItem(itemKey, JSON.stringify(data));
   } catch (err) {
     throw new Error(err);
   }
