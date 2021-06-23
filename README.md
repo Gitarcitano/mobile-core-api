@@ -5,17 +5,17 @@ This package contains the mobile-core interfaces for mobile-modules
 ## Installation
 
 ```sh
-npm install mobile-core-api
+yarn mobile-core-api
 ```
 
 ## Usage
 
 ```js
-import MobileCoreApi from "mobile-core-api";
+import { getStorageItem } from "mobile-core-api";
 
 // ...
 
-const result = await MobileCoreApi.multiply(3, 7);
+const result = await getStorageItem('ItemKeySample');
 ```
 
 ## Contributing
