@@ -1,6 +1,4 @@
-import { getStorageItem, setStorageItem } from './storage';
+import type { setStorageItem } from 'lib/typescript/storage';
+import type { getStorageItem } from './storage';
 
-module.exports = {
-  getStorageItem: getStorageItem,
-  setStorageItem: setStorageItem,
-};
+export { getStorageItem, setStorageItem };
