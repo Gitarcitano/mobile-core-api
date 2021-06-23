@@ -5,7 +5,7 @@ This package contains the mobile-core interfaces for mobile-modules
 ## Installation
 
 ```sh
-yarn mobile-core-api
+yarn add mobile-core-api
 ```
 
 ## Usage
