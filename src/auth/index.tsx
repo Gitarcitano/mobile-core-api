@@ -2,6 +2,8 @@ import React from 'react';
 import { Button, View } from 'react-native';
 import type { LoginProps } from './interfaces';
 import { startOAuthFlow } from './service';
+import { setStorageItem } from '../storage';
+import jwtDecode from 'jwt-decode';
 
 export function Login({
   issuer,
@@ -19,7 +21,12 @@ export function Login({
       additionalParameters,
     });
 
-    console.log(oAuthResponse);
+    console.log(jwtDecode(oAuthResponse.idToken));
+
+    Promise.all([
+      setStorageItem('userApiToken', oAuthResponse.idToken),
+      setStorageItem('userRefreshToken', oAuthResponse.refreshToken),
+    ]);
   }
 
   return (

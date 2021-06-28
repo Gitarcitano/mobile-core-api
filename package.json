@@ -153,6 +153,7 @@
     ]
   },
   "dependencies": {
+    "jwt-decode": "^3.1.2",
     "react-native-app-auth": "^6.4.0"
   }
 }
