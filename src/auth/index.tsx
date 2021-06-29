@@ -23,13 +23,13 @@ export function Login({
 
     const userId = jwtDecode<JwtPayload>(oAuthResponse.idToken).sub;
 
-    Promise.all([
-      setStorageItem('userApiToken', oAuthResponse.idToken),
-      setStorageItem('userRefreshToken', oAuthResponse.refreshToken),
-      setStorageItem('userId', userId),
-    ]);
-  }
+    console.log('userId: ', userId);
+    console.log('oAuthResponse: ', oAuthResponse);
 
+    await setStorageItem('userApiToken', oAuthResponse.idToken);
+    await setStorageItem('userRefreshToken', oAuthResponse.refreshToken);
+    await setStorageItem('userId', userId);
+  }
   return (
     // eslint-disable-next-line react-native/no-inline-styles
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
