@@ -21,15 +21,12 @@ export function Login({
       additionalParameters,
     });
 
-    console.log(jwtDecode(oAuthResponse.idToken));
+    const userId = jwtDecode<JwtPayload>(oAuthResponse.idToken).sub;
 
     Promise.all([
       setStorageItem('userApiToken', oAuthResponse.idToken),
       setStorageItem('userRefreshToken', oAuthResponse.refreshToken),
-      setStorageItem(
-        'userId',
-        jwtDecode<JwtPayload>(oAuthResponse.idToken).sub
-      ),
+      setStorageItem('userId', userId),
     ]);
   }
 
