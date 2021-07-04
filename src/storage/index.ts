@@ -18,3 +18,11 @@ export async function setStorageItem(itemKey: string, data: unknown) {
     throw new Error(err);
   }
 }
+
+export async function removeStorageItem(itemKey: string) {
+  try {
+    await AsyncStorage.removeItem(itemKey);
+  } catch (err) {
+    throw new Error(err);
+  }
+}
