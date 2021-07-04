@@ -1,6 +1,6 @@
 {
   "name": "mobile-core-api",
-  "version": "0.5.3",
+  "version": "0.5.4",
   "description": "This package contains the mobile-core interfaces for mobile-modules",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
