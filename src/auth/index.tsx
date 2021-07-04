@@ -3,7 +3,6 @@ import { Button, View } from 'react-native';
 import type { LoginProps } from './interfaces';
 import { startOAuthFlow } from './service';
 import { setStorageItem } from '../storage';
-import jwtDecode, { JwtPayload } from 'jwt-decode';
 
 export function Login({
   issuer,
@@ -21,14 +20,10 @@ export function Login({
       additionalParameters,
     });
 
-    const userId = jwtDecode<JwtPayload>(oAuthResponse.idToken).sub;
-
-    console.log('userId: ', userId);
-    console.log('oAuthResponse: ', oAuthResponse);
-
-    await setStorageItem('userApiToken', oAuthResponse.idToken);
-    await setStorageItem('userRefreshToken', oAuthResponse.refreshToken);
-    await setStorageItem('userId', userId);
+    Promise.all([
+      setStorageItem('userApiToken', oAuthResponse.idToken),
+      setStorageItem('userRefreshToken', oAuthResponse.refreshToken),
+    ]);
   }
   return (
     // eslint-disable-next-line react-native/no-inline-styles
