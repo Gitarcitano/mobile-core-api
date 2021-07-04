@@ -15,6 +15,7 @@ export interface AuthContextData {
   user: User;
   setUser: Dispatch<React.SetStateAction<User>>;
   checkIfUserIsLoggedIn: () => void;
+  logout: () => void;
 }
 
 export type WithChildren = {

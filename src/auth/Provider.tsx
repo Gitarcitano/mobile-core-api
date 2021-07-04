@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState } from 'react';
 import type { AuthContextData, User, WithChildren } from './interfaces';
-import { getStorageItem } from '../storage';
+import { getStorageItem, removeStorageItem } from '../storage';
 
 const AuthContext = createContext<AuthContextData>({} as AuthContextData);
 
@@ -19,12 +19,22 @@ export function AuthProvider({ children }: WithChildren): JSX.Element {
     }
   }
 
+  async function logout(): Promise<void> {
+    try {
+      await removeStorageItem('userApiToken');
+      await checkIfUserIsLoggedIn();
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   return (
     <AuthContext.Provider
       value={{
         checkIfUserIsLoggedIn,
         setUser,
         user,
+        logout,
       }}
     >
       {children}
